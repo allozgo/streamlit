@@ -58,13 +58,13 @@ def generate_llama2_response(prompt_input, llma):
     output = replicate.run(llma, 
                            input={"prompt": f"{string_dialogue} {prompt_input} Assistant: ",
                                   "temperature":temperature, "top_p":top_p, "max_length":max_length, "repetition_penalty":1})
-    '''
-    if llma == 'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4':
-        url = output
-        response = requests.get(url)
-        img = Image.open(BytesIO(response.content))
-        st.image(img)
-        '''
+    
+    #if llma == 'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4':
+    #    url = output
+    #    response = requests.get(url)
+    #    img = Image.open(BytesIO(response.content))
+    #    st.image(img)
+
     return output
 
 # User-provided prompt
@@ -86,4 +86,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
-    #st.image(img)
