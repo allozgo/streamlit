@@ -58,6 +58,12 @@ def generate_llama2_response(prompt_input, llma):
     output = replicate.run(llma, 
                            input={"prompt": f"{string_dialogue} {prompt_input} Assistant: ",
                                   "temperature":temperature, "top_p":top_p, "max_length":max_length, "repetition_penalty":1})
+    if llma == 'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4':
+        url = output
+        response = requests.get(url)
+        img = Image.open(BytesIO(response.content))
+        st.image(img, caption='Imagen desde la URL', use_column_width=True)
+        
     return output
 
 # User-provided prompt
