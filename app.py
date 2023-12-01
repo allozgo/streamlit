@@ -61,8 +61,7 @@ def generate_llama2_response(prompt_input, llma):
     
     if llma == 'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4':
         st.image(output)
-    else:
-        return output
+    return output
 
 # User-provided prompt
 if prompt := st.chat_input(disabled=not replicate_api):
