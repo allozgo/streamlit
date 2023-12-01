@@ -63,7 +63,7 @@ def generate_llama2_response(prompt_input, llma):
         response = requests.get(url)
         img = Image.open(BytesIO(response.content))
         st.image(img, caption='Imagen desde la URL', use_column_width=True)
-        
+        output = img
     return output
 
 # User-provided prompt
