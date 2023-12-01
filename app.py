@@ -61,7 +61,6 @@ def generate_llama2_response(prompt_input, llma):
     
     if llma == 'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4':
         st.image(output)
-        output = None
 
     return output
 
