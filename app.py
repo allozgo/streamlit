@@ -62,8 +62,6 @@ def generate_llama2_response(prompt_input, llma):
         url = output
         response = requests.get(url)
         img = Image.open(BytesIO(response.content))
-        st.image(img, caption='Imagen desde la URL', use_column_width=True)
-        output = img
     return output
 
 # User-provided prompt
@@ -85,3 +83,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
+    st.image(img, caption='Imagen desde la URL', use_column_width=True)
