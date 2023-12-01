@@ -20,11 +20,9 @@ with st.sidebar:
     os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
     st.subheader('Models and parameters')
-    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-70B','Llama2-7B', 'Llama2-13B', 'Streamlit'], key='selected_model')
+    selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B', 'Streamlit'], key='selected_model')
     if selected_model == 'Llama2-7B':
         llm = 'a16z-infra/llama7b-v2-chat:4f0a4744c7295c024a1de15e1a63c880d3da035fa1f49bfd344fe076074c8eea'
-    elif selected_model == 'Llama2-70B':
-        llm = 'a16z-infra/llama7b-v2-chat:e951f18578850b652510200860fc4ea62b3b16fac280f83ff32282f87bbd2e48'
     elif selected_model == 'Llama2-13B':
         llm = 'a16z-infra/llama13b-v2-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5'
     elif selected_model == 'Streamlit':
@@ -60,7 +58,7 @@ def generate_llama2_response(prompt_input, llma):
                                   "temperature":temperature, "top_p":top_p, "max_length":max_length, "repetition_penalty":1})
     if llma == 'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4':
         st.image(output)
-        
+
     return output
 
 # User-provided prompt
